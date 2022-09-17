@@ -22,3 +22,55 @@ img {
 
 
 /*** CONTENT ***/
+
+.container {
+    max-width: 1000px;
+    height: 80vh;
+    margin: 10vh auto;
+    display: flex;
+}
+
+.left-panel {
+    width: 35%;
+    min-width: 200px;
+    height: 100%;
+    background-color: coral;
+}
+
+.logged-user {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-info {
+    display: flex;
+}
+
+.font-comand {
+    display: flex;
+    align-items: center;
+}
+
+.notifications {
+    height: 55px;
+    display: flex;
+    background-color: #8edafc;
+}
+
+.search {
+    display: flex;
+}
+
+.search input {
+    width: -webkit-fill-available;
+
+}
+
+
+
+
+.right-panel {
+    flex-grow: 1;
+    height: 100%;
+}
