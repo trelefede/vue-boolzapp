@@ -18,7 +18,21 @@ img {
 
 
 /*** UTILITIES ***/
+.bg-green {
+    background-color: #d5f9b9;
+}
 
+.bg-grey {
+    background-color: #ffffff;
+}
+
+.left {
+    justify-content: flex-start;
+}
+
+.right {
+    justify-content: flex-end;
+}
 
 
 /*** CONTENT ***/
@@ -34,13 +48,13 @@ img {
     width: 35%;
     min-width: 200px;
     height: 100%;
-    background-color: coral;
 }
 
 .logged-user {
     height: 50px;
     display: flex;
     justify-content: space-between;
+    background-color: #eaeaea;
 }
 
 .user-info {
@@ -55,22 +69,61 @@ img {
 .notifications {
     height: 55px;
     display: flex;
+    align-items: center;
     background-color: #8edafc;
 }
 
 .search {
+    height: 30px;
+    align-items: center;
     display: flex;
 }
 
 .search input {
+    height: 20px;
     width: -webkit-fill-available;
-
 }
+
+.contacts-container {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.contact {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact span {
+    font-size: 0.5rem;
+}
+
+.contact>div {
+    display: flex;
+    flex-basis: min-content;
+}
+
+.active {
+    background-color: #eaeaea;
+}
+
+
+
 
 
 
 
 .right-panel {
-    flex-grow: 1;
     height: 100%;
+    flex-grow: 1;
+}
+
+.right-panel .chat {
+    background-image: url(../images/mine.jpg);
+}
+
+.chat .message {
+    display: flex;
 }
