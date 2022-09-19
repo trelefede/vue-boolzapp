@@ -71,8 +71,9 @@
             <!-- header -->
             <div class="logged-user">
                 <div class="user-info">
-                    <img src="images/avatar_io.jpg" alt="user-info">
-                    Sofia
+                    <img :src="'images/avatar' + contacts[activeIndex].avatar + '.jpg' "
+                        alt="contacts[activeIndex].name">
+                    {{ contacts[activeIndex].name }}
                 </div>
                 <div class="font-comand">
                     <i class="fa-solid fa-circle-notch"></i>
@@ -82,13 +83,23 @@
             </div>
 
             <!-- chat -->
-            <div class="chat">
-                <div v-for="item in contacts[activeIndex].messages" class="message"
-                    :class=" item.status === 'received' ? 'left' : 'right' ">
-                    <span :class=" item.status === 'received' ? 'bg-grey' : 'bg-green' "> {{ item.message }}
-                    </span>
+            <div class="chat-container">
+                <div v-for="item in contacts[activeIndex].messages" class="message" :class=" item.status ">
+                    <span> {{ item.message }} </span>
                 </div>
+            </div>
 
+            <div class="new-message-container">
+                <div>
+                    <i class="fa-solid fa-circle-notch"></i>
+                </div>
+                <div id="new-message">
+                    <input v-model="textMessage" type="text" placeholder="Cerca o inizia una nuova chat"
+                        @keyUp.enter="sentMessage">
+                </div>
+                <div>
+                    <i class="fa-solid fa-circle-notch"></i>
+                </div>
             </div>
         </div>
     </div>
