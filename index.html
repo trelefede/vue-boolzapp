@@ -25,7 +25,7 @@
             <div class="logged-user">
                 <div class="user-info">
                     <img src="images/avatar_io.jpg" alt="user-info">
-                    Sofia
+                    <p>Sofia</p>
                 </div>
                 <div class="font-comand">
                     <i class="fa-solid fa-circle-notch"></i>
@@ -44,7 +44,7 @@
             </div>
             <div class="search">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                <input v-model="searchInput" type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
 
             <!-- contacts list -->
@@ -73,11 +73,11 @@
                 <div class="user-info">
                     <img :src="'images/avatar' + contacts[activeIndex].avatar + '.jpg' "
                         alt="contacts[activeIndex].name">
-                    {{ contacts[activeIndex].name }}
+                    <p> {{ contacts[activeIndex].name }} </p>
                 </div>
                 <div class="font-comand">
-                    <i class="fa-solid fa-circle-notch"></i>
-                    <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-paperclip"></i>
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
             </div>
@@ -86,19 +86,20 @@
             <div class="chat-container">
                 <div v-for="item in contacts[activeIndex].messages" class="message" :class=" item.status ">
                     <span> {{ item.message }} </span>
+                    <span id="timeMessage"> {{ getTimeMessage(item.date) }} </span>
                 </div>
             </div>
 
             <div class="new-message-container">
                 <div>
-                    <i class="fa-solid fa-circle-notch"></i>
+                    <i class="fa-regular fa-face-smile"></i>
                 </div>
                 <div id="new-message">
-                    <input v-model="textMessage" type="text" placeholder="Cerca o inizia una nuova chat"
+                    <input v-model="textMessage" type="text" placeholder="Scrivi un messaggio"
                         @keyUp.enter="sentMessage">
                 </div>
                 <div>
-                    <i class="fa-solid fa-circle-notch"></i>
+                    <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>
         </div>
