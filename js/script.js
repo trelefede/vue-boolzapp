@@ -34,6 +34,10 @@ const app = new Vue({
             const hourMinuteSeconds = array[1].split(":");
             const HourMinute = `${hourMinuteSeconds[0]}:${hourMinuteSeconds[1]}`;
             return HourMinute;
+        },
+        getArrayLength(array) {
+            const arrayLength = (array.length - 1);
+            return arrayLength;
         }
     }
 })
