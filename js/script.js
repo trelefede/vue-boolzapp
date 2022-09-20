@@ -38,6 +38,13 @@ const app = new Vue({
         getArrayLength(array) {
             const arrayLength = (array.length - 1);
             return arrayLength;
-        }
+        },
+        searchContact() {
+            console.log(this.searchInput);
+            this.contacts.forEach((itemArray, index) => {
+                itemArray.visible = itemArray.name.toLowerCase().indexOf(this.searchInput.toLowerCase()) > -1;
+                console.log('visible:', itemArray.visible);
+            });
+        },
     }
 })

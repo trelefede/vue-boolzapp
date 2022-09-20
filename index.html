@@ -44,23 +44,25 @@
             </div>
             <div class="search">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input v-model="searchInput" type="text" placeholder="Cerca o inizia una nuova chat">
+                <input v-model="searchInput" type="text" placeholder="Cerca o inizia una nuova chat"
+                    @keyUp="searchContact">
             </div>
 
             <!-- contacts list -->
             <div class="contacts-container">
                 <div v-for="(contact, index) in contacts" class="contact" :class="{ active: index === activeIndex }"
                     @click="setActiveContact(index)">
-                    <div>
+                    <div v-if=" contact.visible ">
                         <img :src="'images/avatar' + contact.avatar + '.jpg'" :alt=" contact.name">
                         <div>
                             <h3> {{ contact.name }} </h3>
                             <span>Ultimo messaggio inviato</span>
                         </div>
+                        <div>
+                            <span> {{ getTimeMessage(contact.messages[getArrayLength(contact.messages)].date) }} </span>
+                        </div>
                     </div>
-                    <div>
-                        <span> {{ getTimeMessage(contact.messages[getArrayLength(contact.messages)].date) }} </span>
-                    </div>
+
                 </div>
             </div>
         </div>
